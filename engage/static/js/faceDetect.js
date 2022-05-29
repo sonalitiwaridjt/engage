@@ -24,7 +24,7 @@ video.addEventListener('play', () => {
   }
   console.log(displaySize)
   faceapi.matchDimensions(canvas, displaySize)
-  setInterval(async () => {
+  const si = setInterval(async () => {
     const detections = await faceapi
       .detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
       .withFaceLandmarks()
@@ -46,5 +46,6 @@ video.addEventListener('play', () => {
     const newUrl = window.location.href + '?mood=' + expression
     console.log(newUrl)
     location.href = newUrl
+    clearInterval(si)
   }, 100)
 })

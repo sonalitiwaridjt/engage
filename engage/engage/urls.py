@@ -18,7 +18,6 @@ from django.http import HttpResponseRedirect
 from django.urls import path, include
 
 urlpatterns = [
-    path('', lambda url: HttpResponseRedirect('/goal/')),
     path('goal/', include('goal.urls')),
     path('admin/', admin.site.urls),
 ]

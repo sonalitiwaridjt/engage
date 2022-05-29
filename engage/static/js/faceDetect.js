@@ -45,7 +45,7 @@ video.addEventListener('play', () => {
     console.log(expression)
     const newUrl = window.location.href + '?mood=' + expression
     console.log(newUrl)
-    location.href = newUrl
+    window.location.href = newUrl
     clearInterval(si)
   }, 100)
 })

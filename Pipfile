@@ -12,6 +12,7 @@ django-livereload-server = "*"
 scikit-learn = "*"
 geoip2 = "*"
 mlxtend = "*"
+django-heroku = "*"
 
 [dev-packages]
 autopep8 = "*"

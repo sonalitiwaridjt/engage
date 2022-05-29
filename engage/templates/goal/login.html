@@ -1,0 +1,61 @@
+{% extends 'base.html' %} {% block content %}{% load static %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}" />
+<div class="container mt-5 col-md-8">
+  <div class="row my-5">
+    <div class="col-md text-center text-light">
+      <h1>Welcome to Movie Recommendations</h1>
+    </div>
+  </div>
+  <form
+    id="form1"
+    class="form-signin"
+    method="post"
+    action="{% url 'movies:login' %}"
+  >
+    {% csrf_token %}
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-4 text-center mt-5">
+          <label for="inputUserName" class="sr-only">Username</label>
+          <input
+            type="text"
+            name="username"
+            id="inputUserName"
+            class="form-control input-text"
+            placeholder="Username"
+            required
+            autofocus
+          />
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-4 text-center mt-3">
+          <label for="inputPassword" class="sr-only">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="inputPassword"
+            class="form-control input-text"
+            placeholder="Password"
+            required
+          />
+        </div>
+      </div>
+      <div class="row text-center">
+        <h4>
+          <a
+            class="button-logout mt-5"
+            href="javascript:;"
+            onclick="document.getElementById('form1').submit();"
+            >CLick here to login</a
+          >
+        </h4>
+      </div>
+      <p class="mt-5 mb-3 text-muted text-center">
+        Don't have an account yet?
+        <a class="register" href="{% url 'movies:register' %}">Register now</a>
+      </p>
+    </div>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,138 @@
+{% extends 'base.html' %} {% block styles %} {% load static %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}" />
+{% endblock %} {% block content %}
+<section>
+  <div class="mt-4 container-fluid md-4">
+    <div class="row">
+      <div class="col-md-10 m-auto">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="text-center">Register</h3>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Please enter personal information</h5>
+            <form
+              class="row g-3"
+              method="post"
+              action="{% url 'movies:register' %}"
+            >
+              {% csrf_token %}
+              <div class="col-md-6">
+                <label for="inputFirstName" class="form-label"
+                  >First Name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputFirstName"
+                  name="first_name"
+                  placeholder="Enter First Name"
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="inputLastName" class="form-label">Last Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputlastName"
+                  name="last_name"
+                  placeholder="Enter Last Name"
+                />
+              </div>
+              <div class="col-md-12">
+                <label for="inputEmail4" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="inputEmail4"
+                  name="email"
+                  placeholder="Enter Email"
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="inputUserName" class="form-label">Username</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputUserName"
+                  name="username"
+                  placeholder="Enter Username"
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="inputPassword4"
+                  name="password"
+                  placeholder="Enter Password"
+                />
+              </div>
+              <div class="col-md-4">
+                <label for="inputDate" class="form-label">Date of Birth</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="inputDate"
+                  name="dob"
+                />
+              </div>
+              <h6 class="mt-4 card-subtitle mb-2 text-muted">
+                Please enter contact details
+              </h6>
+              <div class="col">
+                <label for="inputPhone" class="form-label">Phone Number</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputPhone"
+                  placeholder="Phone Number"
+                  name="phone"
+                />
+              </div>
+              <div class="col">
+                <label for="inputCity" class="form-label">City</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputCity"
+                  placeholder="City"
+                  name="city"
+                />
+              </div>
+              <div class="col">
+                <label for="inputCountry" class="form-label">Country</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputCountry"
+                  placeholder="Country"
+                  name="country"
+                />
+              </div>
+
+              <div class="col-12">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="gridCheck"
+                  />
+                  <label class="form-check-label" for="gridCheck">
+                    Agree to the terms and usage. We may use your data for
+                    scientific research.
+                  </label>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary">Sign in</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

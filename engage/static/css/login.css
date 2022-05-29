@@ -1,0 +1,36 @@
+.button-logout {
+    text-decoration: none;
+	display: inline-block;
+	padding: .75rem 1.25rem;
+	border-radius: 10rem;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 1rem;
+	letter-spacing: .15rem;
+	transition: all .3s;
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+}
+
+.button-logout:hover {
+    background: #fff;
+    color: #000;
+}
+
+.button-logout:focus{
+    outline: none;
+    background: #000;
+    color: #fff;
+}
+
+.input-text {
+	text-indent: 5%;
+	color: #000;
+	background-color: #fff;
+	border-radius: 10rem;
+}
+
+.register {
+	text-decoration: none;
+}

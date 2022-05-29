@@ -1,0 +1,124 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'movies:index' %}">Your Goal</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/goal/">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Moods
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/goal/?mood=happy">Happy!</a></li>
+            <li><a class="dropdown-item" href="/goal/?mood=surprised">Surprised!</a></li>
+            <li><a class="dropdown-item" href="/goal/?mood=sad">Sad</a></li>
+            <li><a class="dropdown-item" href="/goal/?mood=neutral">Neutral</a></li>
+            <li><a class="dropdown-item" href="/goal/?mood=fearful">Fearful</a></li>
+            <li><a class="dropdown-item" href="/goal/?mood=angry">Angry</a></li>
+            <li><a class="dropdown-item" href="/goal/?mood=disgusted">Disgusted</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            More
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{% url 'movies:location' %}">In your location</a></li>
+            <li><a class="dropdown-item" href="#searchBox">Your favourite actor</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="{% url 'movies:index' %}">Let us detect your mood!</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex me-4" method="post" action="{% url 'movies:search' %}">
+        {% csrf_token %}
+        <div class="input-group">
+          <div class="input-group-text" id="basic-addon2">
+            Search
+          </div>
+          <input
+            id="searchBox"
+            class="form-control me-2"
+            name="searchString"
+            type="search"
+            aria-label="Search"
+            aria-describedby="basic-addon2"
+          />
+        </div>
+      </form>
+      {% if user.is_authenticated %}
+      <div class="navbar-nav me-2 mb-2 mb-lg-0">
+        <div class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            {{ user.get_short_name }}
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-end navbar-dropdown-user"
+            aria-labelledby="navbarDropdown"
+          >
+            <li>
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-lg-4">
+                    <img
+                      class="img-fluid rounded-circle"
+                      src="https://i.pravatar.cc/200"
+                      alt="{{ user.get_short_name }}"
+                    />
+                  </div>
+                  <div class="col-lg-8">
+                    <span class="text-left"><strong>{{ user.get_full_name }}</strong></span>
+                    <span class="text-left small">{{ user.email }}</span><br/><br/>
+                    <p class="text-left">
+                      <a href="{% url 'movies:logout' %}" class="btn btn-secondary btn-block btn-sm w-100">Logout</a>
+                    </p>
+                </div>
+              </div>
+            </li>
+            <!-- <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item" href="{% url 'movies:logout' %}"
+                >Logout</a
+              >
+            </li> -->
+          </ul>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</nav>

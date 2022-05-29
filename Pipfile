@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+numpy = "*"
+pandas = "*"
+sqlalchemy = "*"
+django-livereload-server = "*"
+scikit-learn = "*"
+geoip2 = "*"
+mlxtend = "*"
+
+[dev-packages]
+autopep8 = "*"
+ipykernel = "*"
+
+[requires]
+python_version = "3.8"

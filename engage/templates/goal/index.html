@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<link rel="stylesheet" href="{% static 'css/faceDetect.css' %}" />
+<div class="container-fluid mt-3">
+  <video id="detectVideo" autoplay muted></video>
+</div>
+<script>
+  var modelSrc = "{% static 'models' %}"
+</script>
+<script
+  src="{% static '/js/face-api.min.js' %}"
+  type="text/javascript"
+></script>
+<script src="{% static 'js/faceDetect.js' %}" type="text/javascript"></script>
+{% endblock %}
